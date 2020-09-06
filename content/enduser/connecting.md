@@ -1,6 +1,9 @@
-# Using geteduroam to connect to eduroam
+---
+title: "Using geteduroam to connect to eduroam"
+weight: 310
+---
 
-These instructions applies for users in institutions that are eduroam IdPs and use eduroam CAT
+These instructions apply for users in institutions that are eduroam IdPs and use eduroam CAT
 
 1. Download the geteduroam app for your platform
 	* [Android](https://play.google.com/store/apps/details?id=app.eduroam.geteduroam)

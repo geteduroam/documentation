@@ -1,0 +1,32 @@
+#baseURL = "http://example.org/"
+baseURL = "/"
+languageCode = "en-gb"
+title = "geteduroam"
+theme = "techdoc"
+
+[params]
+menu_style = "open-menu" # "open-menu" or "slide-menu"
+custom_font_color = "white"
+custom_background_color = "#1568c5"
+
+[menu]
+[[menu.main]]
+identifier = "download"
+name = "Apps"
+title = "Apps"
+url = "download/"
+weight = 2
+
+[[menu.main]]
+identifier = "home"
+name = "Home"
+title = "Home"
+url = "/"
+weight = 1
+
+[[menu.main]]
+identifier = "github"
+name = "Github"
+title = "Github"
+url = "https://github.com/geteduroam"
+weight = 3

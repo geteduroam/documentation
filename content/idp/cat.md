@@ -1,8 +1,11 @@
-# Configuring CAT for use with geteduroam
+---
+title: "Configuring CAT for use with geteduroam"
+weight: 410
+---
 
 When you have set up a geteduroam server (instructions pending), you must create a CAT profile for your users.
 
-## Creating a geteduroam profile in CAT
+#### Creating a geteduroam profile in CAT
 
 You need an admin account on eduroam CAT for this
 
@@ -13,7 +16,7 @@ You need an admin account on eduroam CAT for this
    For example: `https://eduroam.no/#letswifi`
 
 
-## Creating a hybrid profile in CAT
+#### Creating a hybrid profile in CAT
 
 NOTE: This is advanced and you probably don't need this!
 
