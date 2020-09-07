@@ -14,7 +14,7 @@ custom_background_color = "#1568c5"
 identifier = "download"
 name = "Apps"
 title = "Apps"
-url = "download/"
+url = "/download/"
 weight = 2
 
 [[menu.main]]
