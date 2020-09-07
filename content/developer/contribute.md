@@ -1,5 +1,6 @@
 ---
 title: "Contributing to geteduroam"
+date: Mon, 7 Sep 2020 16:09:57 +0200
 weight: 510
 ---
 

@@ -1,5 +1,7 @@
 www: content config.toml theme
-	hugo -d www/
+	./fixdates.sh
+	hugo --enableGitInfo --destination www/
+	touch www
 
 update:
 	git submodule update --init
@@ -15,5 +17,4 @@ theme:
 
 dev: theme
 	hugo server -DEF --ignoreCache --disableFastRender
-
 .PHONY: dev
