@@ -1,5 +1,4 @@
-#baseURL = "http://example.org/"
-baseURL = "/"
+baseURL = "https://www.geteduroam.app/"
 languageCode = "en-gb"
 title = "geteduroam"
 theme = "techdoc"
