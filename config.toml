@@ -10,13 +10,6 @@ custom_background_color = "#1568c5"
 
 [menu]
 [[menu.main]]
-identifier = "download"
-name = "Apps"
-title = "Apps"
-url = "/download/"
-weight = 2
-
-[[menu.main]]
 identifier = "home"
 name = "Home"
 title = "Home"
@@ -24,8 +17,22 @@ url = "/"
 weight = 1
 
 [[menu.main]]
+identifier = "download"
+name = "Apps"
+title = "Apps"
+url = "/download/"
+weight = 2
+
+[[menu.main]]
 identifier = "github"
 name = "GitHub"
 title = "GitHub"
 url = "https://github.com/geteduroam"
 weight = 3
+
+[[menu.main]]
+identifier = "list"
+name = "Mailing list"
+title = "Mailing list"
+url = "https://lists.geant.org/sympa/arc/geteduroam"
+weight = 4
