@@ -1,6 +1,6 @@
 ---
 title: "Configuring CAT for use with geteduroam"
-date: Mon, 7 Sep 2020 00:26:11 +0200
+date: Mon 21 Sep 2020 11:28:41 CEST
 weight: 410
 ---
 
@@ -15,6 +15,9 @@ You need an admin account on eduroam CAT for this
 3. Create a new profile using the button on the bottom
 4. In the redirect field, write the URL to your geteduroam instance, followed by #letswifi
    For example: `https://eduroam.no/#letswifi`
+
+After this, it will take a while for the discovery database to update.
+This can take up to 24 hours.
 
 
 #### Creating a hybrid profile in CAT
