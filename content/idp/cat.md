@@ -1,8 +1,10 @@
 ---
-title: "Configuring CAT for use with geteduroam"
-date: Mon 21 Sep 2020 11:28:41 CEST
+title: "Pseudo-credential and CAT"
+date: Wed 17 Mar 2021 10:15:38 CET
 weight: 410
 ---
+
+**NOTE: This is ONLY needed if you use the pseudo credential. If you are unsure, you are not using it.**
 
 When you have set up a geteduroam server (instructions pending), you must create a CAT profile for your users.
 
