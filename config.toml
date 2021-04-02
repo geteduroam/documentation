@@ -1,4 +1,4 @@
-baseURL = "https://www.geteduroam.app/"
+baseURL = "https://www.geteduroam.app"
 languageCode = "en-gb"
 title = "geteduroam"
 theme = "techdoc"

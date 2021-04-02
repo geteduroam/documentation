@@ -11,6 +11,9 @@ update:
 	rm -f themes/techdoc/layouts/partials/head.html-e
 .PHONY: update
 
+upload: www
+	aws --profile geteduroam-app s3 cp www s3://geteduroam-app/ --acl public-read --recursive --cache-control "public, max-age=3600, s-maxage=300, stale-while-revalidate=86400, stale-if-error=2592000"
+
 theme:
 	test -f themes/techdoc/theme.toml || make update
 .PHONY: theme
