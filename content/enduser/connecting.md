@@ -1,6 +1,6 @@
 ---
 title: "Connecting using geteduroam"
-date: Wed 28 Apr 2021 23:23:08 CEST
+date: Thu 14 Jul 2022 14:22:58 CEST
 weight: 310
 ---
 
@@ -9,7 +9,7 @@ These instructions apply for users in institutions that are eduroam IdPs and use
 1. Download the geteduroam app for your platform
 	* [Android](https://play.google.com/store/apps/details?id=app.eduroam.geteduroam)
 	* [iOS/iPadOS](https://apps.apple.com/no/app/geteduroam/id1504076137)
-	* [Windows](https://geteduroam.app/app/geteduroam.exe)
+	* [Windows](https://dl.eduroam.app/windows/x86_64/geteduroam.exe)
 2. Start the app and select your institution
 3. Depending on whether your institution has enrolled in geteduroam, you will either
 	* Be sent to a website where you log in with your institution credentials (eduGAIN)
