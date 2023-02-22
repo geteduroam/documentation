@@ -19,8 +19,8 @@ The geteduroam project has two subgoals
 
 #### Rationale
 
-In the EAP-PEAP or EAP-TTLS protocols, the users password is sent over the air encrypted for every login, but **the key used for encryption is not always checked**.  There are multiple known attacks that exploit this.
+In the EAP-PEAP or EAP-TTLS protocols, the users password is sent over the air encrypted for every login, but **the server certificates used for the secure channel are not always validated**.  There are multiple known attacks that exploit this.
 
-Because of this, we believe that users get the best security by using EAP-TLS. This is why **we develop server software that can issue client certificates** to be used with EAP-TLS.
+We believe that users get the best security by using EAP-TLS. This is why **we develop server software that can issue client certificates** to be used with EAP-TLS.
 
 Not every institution or roaming operator will use our infrastructure for EAP-TLS from day one.  Because of this, **the geteduroam app will also support EAP-PEAP and EAP-TTLS**, so that users can still have the highest possible level of protection available when they use the geteduroam app.
