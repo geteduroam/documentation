@@ -22,6 +22,7 @@ description: geteduroam is a project to simplify the process of connecting to ed
 <li><details class="download-button-linux"><summary>Linux</summary>
 	<ul>
 		<li><a href="https://github.com/geteduroam/linux-app/releases">⎋ GitHub</a>
+		<li><a href="https://flathub.org/apps/app.eduroam.geteduroam">Flathub</a>
 	</ul>
 </details>
 </ul>
