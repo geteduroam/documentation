@@ -14,6 +14,7 @@ These instructions apply for users in institutions that are eduroam IdPs and use
 		* [AMD/Intel (amd64)](https://dl.eduroam.app/windows/amd64/geteduroam.exe)
 		* [ARM (arm64)](https://dl.eduroam.app/windows/arm64/geteduroam.exe)
 	* Linux
+		* [Flathub](https://flathub.org/apps/app.eduroam.geteduroam)
 		* [GitHub](https://github.com/geteduroam/linux-app/releases)
 2. Start the app and select your institution
 3. Depending on whether your institution has enrolled in geteduroam, you will either
