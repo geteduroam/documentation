@@ -21,3 +21,8 @@ These instructions apply for users in institutions that are eduroam IdPs and use
 	* Be sent to a website where you log in with your institution credentials (eduGAIN)
 	* Be asked for your eduroam username/password, as provided to you by your institution
 4. There is no step four, keep the app installed to stay connected to eduroam
+
+You won't have to run the app again after you've run it once and connected to eduroam.
+Your device should connect to eduroam automatically when it's in range,
+however on some platforms the OS may prefer other networks that you configured manually.
+If you uninstall the app, all eduroam configuration is removed with it, so do keep the app installed while you are enrolled.
