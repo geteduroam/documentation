@@ -33,11 +33,11 @@ geteduroam is a project to **[simplify the process of connecting to eduroam](abo
 
 <p class="sponsors">
 <img src="sponsors/nordunet.png" alt="NORDUnet-logo">
+<img src="sponsors/geant.svg" alt="GEANT-logo" class="geant">
+<img src="sponsors/surf.svg" alt="SURF-logo">
+<img src="sponsors/govroam.png" alt="govroam-logo">
 <img src="sponsors/switch.svg" alt="Switch-logo" class="opaque">
 <img src="sponsors/deic.svg" alt="DeiC-logo">
-<img src="sponsors/surf.svg" alt="SURF-logo">
-<img src="sponsors/geant.svg" alt="GEANT-logo" class="opaque">
-<img src="sponsors/govroam.png" alt="govroam-logo">
 <img src="sponsors/ias.png" alt="IAS-logo">
 <img src="sponsors/co-funded-eu.svg" alt="Co-funded by the European Union-logo" class="opaque">
 </p>

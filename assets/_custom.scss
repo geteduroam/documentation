@@ -132,4 +132,16 @@ ul.download-buttons {
 	img.opaque {
 		background: white;
 	}
+	img.geant {
+		/* https://codepen.io/sosuke/pen/Pjoqqp */
+		/* #2e307c */
+		filter: invert(18%) sepia(41%) saturate(2201%) hue-rotate(216deg) brightness(94%) contrast(96%);
+	}
+	@media (prefers-color-scheme: dark) {
+		img.geant {
+			/* https://codepen.io/sosuke/pen/Pjoqqp */
+			/* #ccc */
+			filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(343deg) brightness(103%) contrast(91%);
+		}
+	}
 }
