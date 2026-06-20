@@ -23,6 +23,7 @@ description: geteduroam is a project to simplify the process of connecting to ed
 	<ul>
 		<li><a href="https://github.com/geteduroam/linux-app/releases">⎋ GitHub</a>
 		<li><a href="https://flathub.org/apps/app.eduroam.geteduroam">Flathub</a>
+		<li><a href="https://search.nixos.org/packages?query=geteduroam">Nixpkgs</a>
 	</ul>
 </details>
 </ul>
