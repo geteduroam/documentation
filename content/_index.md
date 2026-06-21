@@ -1,7 +1,5 @@
 ---
-title: "easily and securely connect to eduroam"
-weight: 100
-description: geteduroam is a project to simplify the process of connecting to eduroam for end users
+title: geteduroam
 ---
 
 <div><img src="geteduroam.png" alt="geteduroam logo" class="sidelogo"></div>
