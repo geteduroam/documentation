@@ -1,0 +1,63 @@
+name: Deploy Hugo site to Pages
+
+on:
+  # Runs on pushes targeting the default branch
+  push:
+    branches:
+      # If you want to build from a different branch, change it here.
+      - main
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+jobs:
+  build:
+    # You can find the list of available runners on https://codeberg.org/actions/meta, or run one yourself.
+    runs-on: codeberg-tiny-lazy
+    container:
+      # Specify "hugomods/hugo:exts" if you want to always use the latest version of Hugo for building.
+      image: "hugomods/hugo:std-base"
+    steps:
+      - name: Clone the repository
+        uses: https://code.forgejo.org/actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Generate static files with Hugo
+        env:
+          # For maximum backward compatibility with Hugo modules
+          HUGO_ENVIRONMENT: production
+          HUGO_ENV: production
+        run: |
+          hugo \
+            --gc \
+            --minify
+      - name: Upload generated files
+        uses: https://code.forgejo.org/actions/upload-artifact@v3
+        with:
+          name: Generated files
+          path: public/
+  deploy:
+    needs: [ build ]
+    runs-on: codeberg-tiny-lazy
+    steps:
+      - name: Clone the repository
+        uses: https://code.forgejo.org/actions/checkout@v4
+        with:
+          submodules: recursive
+          fetch-depth: 0
+      - name: Checkout the target branch and clean it up
+        # If you want to commit to a branch other than "pages", change the two references below, as well as the reference in the last step. 
+        run: |
+          git checkout pages || git switch --orphan pages && \
+          rm -Rfv $(ls -A | egrep -v '^(\.git|LICENSE)$')
+      - name: Download generated files
+        uses: https://code.forgejo.org/actions/download-artifact@v3
+        with:
+          name: Generated files
+      - name: Publish the website
+        run: |
+          git config user.email codeberg-ci && \
+          git config user.name "Codeberg CI" && \
+          git add . && \
+          git commit --allow-empty --message "Codeberg build for ${GITHUB_SHA}" && \
+          git push origin pages

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
+{{ partial "head.html" . }}
+<header>
+{{ partial "header.html" . }}
+</header>
+{{ if .CurrentSection.Section }}
+<div class="cols">
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+{{ end }}
+<main>
+{{ block "main" . }}{{ end }}
+</main>
+{{ if .CurrentSection.Section }}
+</div>
+{{ end }}
+<footer>
+{{ partial "footer.html" . }}
+</footer>

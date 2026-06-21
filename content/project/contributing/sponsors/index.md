@@ -1,0 +1,22 @@
+---
+title: Sponsors
+weight: -1
+---
+
+<p class="sponsors">
+<picture><img src="/project/contributing/sponsors/nordunet.svg" alt="NORDUnet"></picture>
+<picture><img src="/project/contributing/sponsors/geant.svg" alt="GÉANT" class="invert"></picture>
+<picture><img src="/project/contributing/sponsors/surf.svg" alt="SURF" class="invert"></picture>
+<picture><img src="/project/contributing/sponsors/govroam.png" alt="govroam" class="invert"></picture>
+<picture>
+	<source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/project/contributing/sponsors/switch-dark.svg">
+	<img src="/project/contributing/sponsors/switch.svg" alt="Switch" class="truecolour">
+</picture>
+<picture><img src="/project/contributing/sponsors/deic.svg" alt="DeiC" class="invert"></picture>
+<picture><img src="/project/contributing/sponsors/sikt.svg" alt="Sikt" class="invert"></picture>
+<picture><img src="/project/contributing/sponsors/ias.svg" alt="IAS" class="invert"></picture>
+<picture>
+	<source media="(prefers-color-scheme: dark)" type="image/webp" srcset="/project/contributing/sponsors/co-funded-eu-dark.svg">
+	<img src="/project/contributing/sponsors/co-funded-eu.svg" alt="Co-funded by the European Union">
+</picture>
+</p>

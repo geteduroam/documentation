@@ -1,0 +1,128 @@
+article a {
+	text-decoration: underline !important;
+}
+
+.sidelogo {
+	float: left;
+	margin-right: 2rem;
+	width: 6rem;
+}
+
+.landing-title {
+	margin-top: 0 !important;
+}
+
+.landing-title > span {
+	display: block;
+	width: 1px;
+	height: 1px;
+	overflow: hidden;
+}
+.landing-title > small {
+	font-size: .4em;
+	color: gray;
+}
+
+ul.download-buttons li {
+	display: inline-block;
+	vertical-align: top;
+}
+ul.download-buttons a {
+	display: inline-block;
+}
+ul.download-buttons .download-button-android img {
+	max-height: 3.68rem;
+}
+ul.download-buttons .download-button-ios {
+	margin-top: .6rem;
+}
+ul.download-buttons .download-button-windows {
+	background: black url('download/win.svg') no-repeat;
+	background-position: .4rem .4rem;
+}
+ul.download-buttons .download-button-linux {
+	background: black url('download/lin.svg') no-repeat;
+	background-position: .4rem .6rem;
+}
+ul.download-buttons .download-button-windows,
+ul.download-buttons .download-button-linux {
+	margin: .6rem;
+	margin-right: 0;
+	height: 2.5rem;
+	background-size: 1.5rem;
+	color: white;
+	border-radius: .4rem;
+	border: 1px solid gray;
+	padding: .5rem 1.5rem .1rem 2.5rem;
+	font-weight: bold;
+}
+ul.download-buttons details.download-button-windows,
+ul.download-buttons details.download-button-linux {
+	padding: 0;
+	height: auto;
+	min-height: 2.5rem;
+	text-align: center;
+	width: min-content;
+}
+ul.download-buttons details summary {
+	padding: .5rem 1.5rem 0 2.5rem;
+	margin: 0;
+	list-style: none;
+}
+ul.download-buttons details summary::marker,
+ul.download-buttons details summary::-webkit-details-marker {
+	content: '';
+	display: none;
+}
+ul.download-buttons details ul {
+	padding: 0;
+	display: flex;
+	flex-wrap: wrap-reverse;
+	list-style: none;
+	justify-content: space-around;
+}
+ul.download-buttons details ul a {
+	color: white;
+	white-space: nowrap;
+}
+
+/********************************/
+
+.sponsors {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 27px;
+	align-items: center;
+	justify-content: space-evenly;
+	margin: 0 auto;
+}
+.sponsors img {
+	height: 32px;
+	width: auto;
+}
+.sponsors img.opaque {
+	background: white;
+}
+.sponsors img.geant {
+	/* https://codepen.io/sosuke/pen/Pjoqqp */
+	/* #2e307c */
+	filter: invert(18%) sepia(41%) saturate(2201%) hue-rotate(216deg) brightness(94%) contrast(96%);
+}
+@media (prefers-color-scheme: dark) {
+	.sponsors img {
+		opacity: .6;
+	}
+	.sponsors img.geant {
+		/* https://codepen.io/sosuke/pen/Pjoqqp */
+		/* #ccc */
+		filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(343deg) brightness(103%) contrast(91%);
+	}
+	.sponsors img.invert {
+		filter: invert(100%) hue-rotate(180deg);
+	}
+}
+@media (max-width: 1300px) {
+	.sponsors {
+		max-width: 800px;
+	}
+}

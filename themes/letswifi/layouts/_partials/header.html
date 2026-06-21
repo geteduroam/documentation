@@ -1,0 +1,8 @@
+<a draggable="false" href="/" id="product-name" aria-label="Home">{{ site.Title }}</a>
+	<div id="systray">
+{{ range .Site.Menus.main }}
+		<div class="dropdown-container">
+			<a class="dropdown-header" href="{{ .URL }}">{{ .Page.LinkTitle }}</a>
+		</div>
+{{ end }}
+	</div>

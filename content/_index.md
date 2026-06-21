@@ -6,8 +6,8 @@ description: geteduroam is a project to simplify the process of connecting to ed
 
 <div><img src="geteduroam.png" alt="geteduroam logo" class="sidelogo"></div>
 <h1 class="landing-title">geteduroam
-	<span>by</span>
-	<small>NORDUnet, DeiC, SURF, GÉANT, govroam NL and IAS. Co-funded by the European Union</small></h1>
+	<span></span>
+	<small>Easily connect your devices to eduroam, download the app to get started</small></h1>
 
 <ul class="download-buttons">
 <li><a class="download-button-android" href="https://play.google.com/store/apps/details?id=app.eduroam.geteduroam"><img src="download/google-play-badge-2.png" alt="Android"></a>
@@ -27,17 +27,6 @@ description: geteduroam is a project to simplify the process of connecting to ed
 </details>
 </ul>
 
-geteduroam is a project to **[simplify the process of connecting to eduroam](about/goals/)** for end users
+geteduroam is a project to **[simplify the process of connecting to eduroam](project/information/goals/)** for end users
 
-## Sponsors
-
-<p class="sponsors">
-<img src="sponsors/nordunet.png" alt="NORDUnet-logo">
-<img src="sponsors/geant.svg" alt="GEANT-logo" class="geant">
-<img src="sponsors/surf.svg" alt="SURF-logo">
-<img src="sponsors/govroam.png" alt="govroam-logo">
-<img src="sponsors/switch.svg" alt="Switch-logo" class="opaque">
-<img src="sponsors/deic.svg" alt="DeiC-logo">
-<img src="sponsors/ias.png" alt="IAS-logo">
-<img src="sponsors/co-funded-eu.svg" alt="Co-funded by the European Union-logo" class="opaque">
-</p>
+---

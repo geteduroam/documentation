@@ -1,0 +1,7 @@
+locale = 'en-GB'
+title = "Hugo Let's Wi-Fi Theme"
+
+[module]
+	[module.hugoVersion]
+		extended = false
+		min = '0.163'

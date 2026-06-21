@@ -1,0 +1,714 @@
+:root {
+	--bg-color: #f6f4f2;
+	--text-color: #212529;
+
+	--highlight-bg-color: #fefcfa;
+	--highlight-text-color: #212529;
+
+	--code-text-color: #a05;
+
+	--accent-color: #a61b70;
+	--button-danger-bg-color: #a04;
+	--button-danger-active-bg-color: #803;
+	--button-text-color: #fff;
+	--light-border-color: #e5e4e2;
+}
+
+html {
+	background: var(--bg-color);
+	color: var(--text-color);
+	font-family: sans-serif;
+	line-height: 1.15;
+	-webkit-text-size-adjust: 100%;
+	-webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+	margin: 0;
+	padding: 0;
+}
+:link { color: #06c; }
+:visited { color: #551a8b; }
+:link:active, :visited:active { color: #e00; }
+summary:active, button:active, #realm-picker > ul > li:has(label):active { position: relative; top: 1px; }
+a:active, button[type=submit]:active { position: relative; top: 2px; }
+
+body {
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+	margin: 1em;
+}
+
+header {
+	text-align: right;
+	display: flex;
+	justify-content: space-between;
+}
+header, header *, nav.side-menu {
+	user-select: none;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	user-drag: none;
+	-webkit-user-drag: none;
+}
+header * {
+	text-align: left;
+}
+header #product-name {
+	font-weight: bold;
+	text-decoration: none;
+	color: var(--text-color);
+}
+#systray > .dropdown-container {
+	display: inline-block;
+	font-size: .8rem;
+	position: relative;
+
+	/* needed for when it contains a <button> */
+	vertical-align: middle;
+}
+
+#systray > .dropdown-container > .dropdown-header:has(.dropdown-header-collapse) {
+	/*
+	hide the text on the button,
+	showing only the icon;
+	text will remain available for screen readers
+	*/
+	width: 1.5em;
+}
+#systray > .dropdown-container > .dropdown-header:focus-visible {
+	width: auto;
+}
+#systray > .dropdown-container > .dropdown-header > .oojs-icon {
+	margin-right: .35em;
+}
+#systray > .dropdown-container > .dropdown {
+	background: var(--highlight-bg-color);
+}
+#systray > .dropdown-container > .dropdown-header {
+	white-space: nowrap;
+	border-radius: .1rem;
+	overflow: hidden;
+
+	padding: .2em .6em;
+	font-size: 1.2em;
+	display: block;
+}
+#systray > .dropdown-container > a.dropdown-header {
+	color: var(--text-color);
+	text-decoration: none;
+}
+#systray > .dropdown-container > button.dropdown-header {
+	color: var(--text-color);
+	background: none;
+	line-height: initial;
+	box-sizing: content-box;
+	border: none;
+
+	/* todo: find out why we need bigger vertical margin for a button */
+	padding: .3em .6em;
+}
+#systray > .dropdown-container > details::-webkit-details-marker {
+	display: none;
+}
+#systray > .dropdown-container > .dropdown {
+	/*
+	position is always relative to the ancestor with "position: absolute" or "position: relative";
+	so we made .dropdown-container "position: relative" without moving it.
+	This allows us to show the dropdown below the container, and expand it to the left due to "right: 0".
+	*/
+	position: absolute;
+	top: 1.9em;
+	right: 0;
+
+	margin: .1rem -.2rem;
+	padding: 0;
+	cursor: default;
+
+	white-space: nowrap;
+	border: thin solid rgba(128,128,128,.5);
+	box-shadow: 0 .1rem .2rem rgba(0,0,0,.2);
+	border-radius: .2rem;
+	font-size: 1.2em;
+}
+#systray > .dropdown-container > dialog.dropdown {
+	/*
+	Dialog popovers are placed in the top layer and generate a new stacking context
+	https://developer.mozilla.org/en-US/docs/Web/API/Popover_API/Using
+	https://developer.mozilla.org/en-US/docs/Glossary/Top_layer
+
+	However, there is a relation between the anchor and the popover,
+	allowing to position the popover relative to the anchor.
+	However, not yet supported in Firefox and Safari (2025).
+
+	top: anchor(bottom);
+	right: anchor(right);
+
+	So we do it in this roundabout way:
+	*/
+	left: 100%;
+	transform: translateX(-100%) translateX(-.8rem) translateY(1em);
+}
+#systray > .dropdown-container > .dropdown:has(*:focus-visible) {
+	/*
+	we would use this to add an extra line around the dropdown menu,
+	but in Safari this automatically enables when the popover becomes visible,
+	which is not what we want.
+	The accessability value is limited, because the menu item is also visually highlighted
+	so we don't do this rule but instead disable the outline
+
+	outline: 1px auto;
+	*/
+	outline: 0;
+}
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu {
+	padding: 0;
+	margin: .4em 0;
+	list-style: none;
+}
+
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > * {
+	padding: .1em 1em;
+	margin: 0;
+	display: block;
+	top: 0 !important;
+	color: var(--text-color);
+	text-decoration: none;
+	position: relative;
+}
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > hr {
+	margin: .4em 0 .2em 0;
+}
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a {
+	color: var(--text-color) !important;
+}
+#systray > .dropdown-container > button:active,
+#systray > .dropdown-container > a:active,
+#systray > details.dropdown-container[open] > summary,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
+	background-color: var(--accent-color);
+	color: var(--button-text-color) !important;
+}
+#systray > .dropdown-container > button:active .oojs-icon:before,
+#systray > .dropdown-container > a:active .oojs-icon:before,
+#systray > details.dropdown-container[open] > summary .oojs-icon:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a.oojs-icon:hover:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a.oojs-icon:active:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a.oojs-icon:focus-visible:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a:hover .oojs-icon:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a:active .oojs-icon:before,
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a:focus-visible .oojs-icon:before {
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+}
+#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li a:focus {
+	outline: none;
+}
+
+main > * {
+	max-width: 46rem;
+	margin: 1rem auto;
+}
+html.dialog main > * {
+	max-width: 24rem;
+}
+html.dialog main > p.fullwidth {
+	max-width: 27.3em;
+}
+
+section {
+	/*padding: 0 .8em .4em .8em;*/
+	padding-bottom: .4em;
+}
+section.highlight {
+	padding: .4em .8em;
+	box-shadow: 0 .1em .2em rgba(0,0,0,.4);
+	border-radius: .1em;
+	border-left: thick solid var(--accent-color);
+	background: var(--highlight-bg-color);
+	color: var(--highlight-text-color);
+}
+section h1, section h2 {
+	margin-top: 0;
+}
+
+pre {
+	overflow-x: scroll;
+}
+code {
+	background: rgba(0,0,0,.08);
+	padding: .2em .4em;
+	color: var(--code-text-color);
+}
+p {
+	font-size: .95em;
+}
+p.text-center {
+	text-align: center
+}
+p picture img {
+	max-width: 100%;
+}
+picture.screenshot.mac img {
+	filter: drop-shadow(0 .15em .15em rgba(0,0,0,.5)) saturate(50%);
+}
+h1 {
+	font-size: 1.6em;
+}
+h2 {
+	font-size: 1.4em;
+}
+h3 {
+	font-size: 1.2em;
+}
+
+.form dl {
+	display: flex;
+	justify-content: flex-start;
+}
+
+.form dl dt {
+	min-width: 5em;
+	font-weight: bold;
+}
+.form dl dt, .form dl dd {
+}
+.form dl dd {
+	grow: 2;
+}
+.form dd {
+	white-space: nowrap;
+}
+
+details:has(p), table {
+	font-size: .8rem;
+}
+details:has(p) > summary {
+	display: inline;
+}
+details:has(p) > summary:before {
+	display: inline-block;
+	background-image: url('oojs-ui/images/icons/play.svg');
+	background-position: 50% 50%;
+	width: .7em;
+	height: .7em;
+	padding: 0 !important;
+	margin-right: .5em;
+}
+details[open]:has(p) > summary:before {
+	transform: rotate(90deg);
+	transition: transform .1s ease-in-out;
+}
+summary, button {
+	cursor: pointer;
+}
+table {
+	width: 100%;
+}
+table td {
+	/* works as min-height, https://stackoverflow.com/a/25329017/951387 */
+	height: 2.1em;
+}
+table td.nowrap-col, table th.nowrap-col {
+	white-space: nowrap;
+}
+table td.right-col, table th.right-col {
+	text-align: right;
+}
+table td.center-col, table th.center-col {
+	text-align: center;
+}
+table td.overflow, table th.overflow {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+hr {
+	border: none;
+	border-top: thin solid;
+	border-color: var(--light-border-color);
+	margin: 2em auto;
+}
+.fieldsets {
+	display: flex;
+	gap: 1em;
+	justify-content: space-between;
+}
+.fieldsets > * {
+	flex-grow: 1;
+}
+input[type=datetime-local], input[type=text], input[type=password] {
+	border: solid;
+	border-width: 2px;
+	border-color: var(--text-color);
+	background: inherit;
+	color: inherit;
+	border-top: none;
+	border-left: none;
+	border-right: none;
+	padding: .2em;
+	border-radius: .02em;
+	margin-top: .1em;
+}
+input[type=radio]:focus + label,
+input[type=checkbox]:focus + label,
+input[type=datetime-local]:focus-visible,
+input[type=text]:focus-visible,
+input[type=password]:focus-visible,
+label:focus {
+	outline-offset: .2em;
+	outline: solid 2px var(--accent-color);
+}
+input[type=radio], input[type=checkbox] {
+	outline: none;
+}
+dialog.modal::backdrop {
+	background-color: rgba(255,255,255,.5);
+}
+dialog.modal {
+	background: var(--highlight-bg-color);
+	color: var(--highlight-text-color);
+	border-color: var(--accent-color);
+	padding: 1px;
+}
+dialog.modal > *, dialog.modal > form > * {
+	padding: 1em;
+}
+dialog.modal > form {
+	padding: 0;
+}
+dialog.modal > .buttons, dialog.modal > form > .buttons {
+	flex-direction: row-reverse;
+	justify-content: flex-start;
+	background: rgba(0,0,0,.05);
+}
+dialog.modal h2 {
+	margin: 0;
+	padding: 1em;
+	padding-bottom: 0;
+	font-size: 1em;
+}
+
+fieldset {
+	border: thin solid var(--light-border-color);
+	border-radius: .15em;
+	margin-bottom: 2em;
+}
+fieldset > legend {
+	font-size: .7rem;
+}
+#realm-picker ul {
+	padding: 0;
+	list-style: none;
+}
+#realm-picker ul input[type=radio], #realm-picker ul input[type=checkbox] {
+	margin: .3rem 0 0 .3em;
+	float: left;
+	clear: left;
+}
+#realm-picker ul input[type=checkbox] {
+	margin-top: .2rem;
+}
+#realm-picker ul label {
+	padding-left: 1.8em;
+	padding-right: .5em;
+	display: block;
+	margin-bottom: .8em;
+	border-radius: .2em;
+	cursor: pointer;
+	white-space: nowrap;
+	min-height: 1.5em;
+}
+#realm-picker small {
+	opacity: .7;
+	margin-left: .8em;
+}
+.realms li > img {
+	clear: left;
+	float: left;
+	height: 3em;
+	max-width: 5em;
+	padding: 0 .3em .1em 0;
+}
+
+.buttons {
+	list-style: none;
+	display: flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	padding: 0;
+}
+
+.btn, button {
+	font-size: 1em;
+	border: none;
+	padding: 0.2em 2em;
+	line-height: 1.7em;
+	border-radius: .2em;
+	display: inline-block;
+	text-decoration: none;
+	white-space: nowrap;
+}
+button:not(.dropdown-header) .oojs-icon:before, button:not(.dropdown-header) .oojs-icon:before {
+	filter: invert(100%);
+	-webkit-filter: invert(100%);
+}
+.btn.btn-default, button {
+	background: var(--accent-color);
+	color: var(--button-text-color);
+}
+.btn.btn-default:active, button:active {
+	background: var(--accent-color);
+	color: var(--button-text-color);
+}
+.btn.btn-danger, button.btn-danger {
+	background: var(--button-danger-bg-color);
+	color: var(--button-text-color);
+}
+.btn.btn-danger:active, button.btn-danger:active {
+	background: var(--button-danger-active-bg-color);
+	color: var(--button-text-color);
+}
+.btn.btn-boring, button.btn-boring {
+	background: #777;
+	color: var(--button-text-color);
+}
+.btn.btn-boring:active, button.btn-boring:active {
+	background: #666;
+	color: var(--button-text-color);
+}
+.btn-txt {
+	color: var(--text-color);
+	display: inline;
+	padding: 0;
+	margin: 0;
+	background: none;
+	text-decoration: underline;
+	font-size: inherit;
+}
+.btn.fullwidth {
+	display: block;
+	width: 100%;
+	box-sizing: border-box;
+	text-align: left;
+}
+
+.apps .badge a, .apps .badge img {
+	display: inline-block;
+	border-radius: 5px;
+}
+.apps .badge a img {
+	height: 2.4em;
+	display: block;
+}
+.apps .badge.app-store a, .apps .badge.app-store img {
+	/*
+	the Apple badge has a slightly rounder border;
+	using it here as well makes the focus indicator
+	follow the badge
+	*/
+	border-radius: 6.3px;
+}
+.apps .badge.microsoft-store img {
+	/*
+	the Microsoft badge doesn't have a border,
+	so we have to add one ourselves
+	*/
+	border: 1px solid var(--text-color);
+	box-sizing: border-box;
+}
+.apps .download a, .apps .link a {
+	border: 1px solid var(--text-color);
+	display: inline-block;
+	line-height: 2.2em;
+	color: var(--highlight-text-color);
+	border-radius: .4em;
+	text-decoration: none;
+	padding: 0 .6em;
+}
+.apps .download a span {
+	display: inline-block;
+}
+.apps .download a span > span {
+	display: block;
+	line-height: 1em;
+	position: relative;
+	top: .4em;
+	padding: 0 .3rem;
+	color: var(--highlight-text-color);
+}
+.apps .download a span > span.platform {
+	font-weight: bold;
+	font-size: .6em;
+}
+
+.oojs-icon{
+}
+.oojs-icon:before, .apps .link a:after, .apps .download a:before,
+details:has(p) > summary:before {
+	padding: .1em .5em .1em 1.5em;
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+	background-size: contain;
+	content: "";
+}
+.apps .link a:after, .apps .download a:before {
+	font-size: .7em;
+}
+.apps .link a:after {
+	background-image: url('oojs-ui/images/icons/linkExternal-ltr.svg');
+	background-position: 100% 50%;
+	padding: 0 0 0 2em;
+}
+.apps .download a:before {
+	background-image: url('oojs-ui/images/icons/download.svg');
+	position: relative;
+	top: .3em;
+	padding: 0 1.5em 0 0;
+	background-size: 1.5em;
+}
+
+.oojs-icon-check:before {
+	background-image: url('oojs-ui/images/icons/check.svg');
+}
+.oojs-icon-language:before {
+	background-image: url('oojs-ui/images/icons/language.svg');
+}
+.oojs-icon-login:before {
+	background-image: url('oojs-ui/images/icons/login-ltr.svg');
+}
+.oojs-icon-logout:before {
+	background-image: url('oojs-ui/images/icons/logout-ltr.svg');
+}
+.oojs-icon-userAvatar:before {
+	background-image: url('oojs-ui/images/icons/userAvatar.svg');
+}
+.oojs-icon-userAvatarOutline:before {
+	background-image: url('oojs-ui/images/icons/userAvatarOutline.svg');
+}
+.oojs-icon-userContributions:before {
+	background-image: url('oojs-ui/images/icons/userContributions-ltr.svg');
+}
+.oojs-icon-settings:before {
+	background-image: url('oojs-ui/images/icons/settings.svg');
+}
+.oojs-icon-download:before {
+	background-image: url('oojs-ui/images/icons/download.svg');
+}
+.oojs-icon-funnel:before {
+	background-image: url('oojs-ui/images/icons/funnel-ltr.svg');
+}
+.oojs-icon-specialPages:before {
+	background-image: url('oojs-ui/images/icons/specialPages-ltr.svg');
+}
+
+a .oojs-icon-funnel {
+	opacity: 0;
+}
+a .oojs-icon-funnel:last-child {
+	margin: 0 0 0 .3em;
+}
+a .oojs-icon-funnel:last-child:before {
+	padding: .1em .7em;
+}
+
+a:focus .oojs-icon-funnel, a:hover .oojs-icon-funnel {
+	opacity: .5;
+}
+
+.cols > main {
+	flex-grow: 2;
+}
+body > .cols {
+	max-width: 68rem;
+}
+.cols {
+	display: flex;
+	gap: 2em;
+	margin: 0 auto;
+}
+
+nav.side-menu {
+	line-height: 1.8em;
+	font-size: .9em;
+	cursor: default;
+}
+nav.side-menu img {
+	width: 3.2em;
+	max-height: 3.2em;
+}
+nav.side-menu hr {
+	margin: 0 0 1em 0;
+}
+nav.side-menu h2 {
+	font-size: 1em;
+	font-variant-caps: all-small-caps;
+	margin: 0;
+}
+nav.side-menu ul {
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+nav.side-menu li {
+	margin: .4em 0;
+}
+nav.side-menu ul li a {
+	display: block;
+	padding: 0 0 0 .6em;
+	text-decoration: none;
+	color: var(--text-color);
+	border-left: medium solid rgba(0,0,0,0);
+}
+nav.side-menu ul li a:hover, nav.side-menu ul li a:active, nav.side-menu ul li.active a {
+	border-left: medium solid var(--accent-color);
+	color: var(--highlight-text-color);
+}
+nav.side-menu ul li.active a {
+	background: var(--highlight-bg-color);
+	cursor: default;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-color: #0f0e1c;
+		--text-color: #a0a8af;
+
+		--highlight-bg-color: #201e2f;
+		--highlight-text-color: #e1e3e4;
+
+		--code-text-color: #e47;
+
+		--light-border-color: #353432;
+	}
+	:link { color: #58f; }
+	:visited { color: #c8e; }
+	:link:active, :visited:active { color: #e34; }
+
+	.oojs-icon:before, .oojs-icon:before, .apps .link a:after, .apps .download a:before,
+	details:has(p) > summary:before {
+		filter: invert(80%);
+		-webkit-filter: invert(80%);
+	}
+
+	#systray > .dropdown-container > .dropdown, section.highlight {
+		box-shadow: none;
+	}
+	#systray > .dropdown-container > .dropdown {
+		outline: thin solid var(--bg-color);
+	}
+	picture.screenshot.mac img {
+		filter: invert(100%) sepia(20%) invert(100%) hue-rotate(18deg);
+	}
+
+	dialog.modal > .buttons, dialog.modal > form > .buttons {
+		background: rgba(255,255,255,.1);
+	}
+	dialog.modal::backdrop {
+		background-color: rgba(0,0,0,.7);
+	}
+
+	section.highlight {
+		border-left-width: 4px;
+	}
+}
