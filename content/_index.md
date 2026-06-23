@@ -43,3 +43,10 @@ geteduroam is a project to **[simplify the process of connecting to eduroam](abo
 <img src="sponsors/ias.png" alt="IAS-logo">
 <img src="sponsors/co-funded-eu.svg" alt="Co-funded by the European Union-logo" class="opaque">
 </p>
+
+<hr>
+
+<p>
+<a href="https://github.com/orgs/geteduroam/people">People</a>
+•
+<a href="https://github.com/geteduroam/letswifi-portal/graphs/contributors">Contributors</a>
