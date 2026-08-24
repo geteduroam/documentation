@@ -39,9 +39,12 @@ body {
 }
 
 header {
+	max-width: 64rem;
+	margin: 1rem auto 2rem;
 	text-align: right;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 header, header *, nav.side-menu {
 	user-select: none;
@@ -58,8 +61,11 @@ header #product-name {
 	text-decoration: none;
 	color: var(--text-color);
 }
+#systray {
+	display: flex;
+	gap: 1.25em;
+}
 #systray > .dropdown-container {
-	display: inline-block;
 	font-size: .8rem;
 	position: relative;
 
@@ -86,16 +92,17 @@ header #product-name {
 }
 #systray > .dropdown-container > .dropdown-header {
 	white-space: nowrap;
-	border-radius: .1rem;
 	overflow: hidden;
 
-	padding: .2em .6em;
 	font-size: 1.2em;
 	display: block;
 }
 #systray > .dropdown-container > a.dropdown-header {
 	color: var(--text-color);
 	text-decoration: none;
+}
+#systray > .dropdown-container > a.dropdown-header:hover {
+	text-decoration: underline;
 }
 #systray > .dropdown-container > button.dropdown-header {
 	color: var(--text-color);
@@ -206,10 +213,18 @@ header #product-name {
 	outline: none;
 }
 
-main > * {
+main {
+	margin: 0 auto;
 	max-width: 46rem;
-	margin: 1rem auto;
+	min-width: 0;
 }
+
+footer {
+	max-width: 46rem;
+	margin: 2rem auto;
+	text-align: center;
+}
+
 html.dialog main > * {
 	max-width: 24rem;
 }
@@ -235,12 +250,11 @@ section h1, section h2 {
 
 pre {
 	overflow-x: scroll;
-}
-code {
-	background: rgba(0,0,0,.08);
-	padding: .2em .4em;
+	background: rgba(0,0,0,.05);
 	color: var(--code-text-color);
+	padding: .2em .4em;
 }
+
 p {
 	font-size: .95em;
 }
@@ -255,6 +269,8 @@ picture.screenshot.mac img {
 }
 h1 {
 	font-size: 1.6em;
+	line-height: 2rem;
+	margin: 0 0 1rem;
 }
 h2 {
 	font-size: 1.4em;
@@ -616,20 +632,28 @@ a:focus .oojs-icon-funnel, a:hover .oojs-icon-funnel {
 	opacity: .5;
 }
 
-.cols > main {
-	flex-grow: 2;
-}
 body > .cols {
-	max-width: 68rem;
+	max-width: 64rem;
 }
 .cols {
 	display: flex;
-	gap: 2em;
+	flex-direction: column;
+	gap: 2rem;
 	margin: 0 auto;
+}
+@media (min-width: 40em) {
+	.cols {
+		flex-direction: row;
+	}
+}
+.cols > main {
+	flex: 2 2 auto;
+	margin: 0;
 }
 
 nav.side-menu {
-	max-width: 16em;
+	flex: 1 1 auto;
+	max-width: 16rem;
 	line-height: 1.8em;
 	font-size: .9em;
 	cursor: default;
