@@ -61,6 +61,23 @@ header #product-name {
 	text-decoration: none;
 	color: var(--text-color);
 }
+
+.block {
+	display: block;
+}
+.hidden {
+	display: none;
+}
+
+@media (min-width: 40em) {
+	.md-block {
+		display: block;
+	}
+	.md-hidden {
+		display: none;
+	}
+}
+
 #systray {
 	display: flex;
 	gap: 1.25em;
@@ -194,8 +211,7 @@ header #product-name {
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
-	background-color: var(--accent-color);
-	color: var(--button-text-color) !important;
+	text-decoration: underline;
 }
 #systray > .dropdown-container > button:active .oojs-icon:before,
 #systray > .dropdown-container > a:active .oojs-icon:before,
@@ -298,9 +314,10 @@ h3 {
 }
 
 details:has(p), table {
-	font-size: .8rem;
+	font-size: .9rem;
 }
-details:has(p) > summary {
+details:has(p) > summary,
+details:has(p) > summary h1 {
 	display: inline;
 }
 details:has(p) > summary:before {
@@ -653,11 +670,16 @@ body > .cols {
 
 nav.side-menu {
 	flex: 1 1 auto;
-	max-width: 16rem;
 	line-height: 1.8em;
-	font-size: .9em;
+	font-size: .9rem;
 	cursor: default;
 }
+@media (min-width: 40em) {
+	nav.side-menu {
+		max-width: 16rem;
+	}
+}
+
 nav.side-menu img {
 	width: 3.2em;
 	max-height: 3.2em;

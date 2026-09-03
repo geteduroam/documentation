@@ -11,19 +11,39 @@ Renders a menu for the given menu ID.
 {{- $page := .page }}
 
 <nav class="side-menu">
-	<div>
-		<h1>{{ ($page.GetPage $page.Section).Title }}</h1>
-		<p>{{ ($page.GetPage $page.Section).Description }}
+	<div class="hidden md-block">
+		<div>
+			<h1>{{ ($page.GetPage $page.Section).Title }}</h1>
+			<p>{{ ($page.GetPage $page.Section).Description }}
+		</div>
+
+		{{ range index $page.Site.Menus $page.Section }}
+		<h2>{{ .Name }}</h2>
+		<ul>
+			{{/*<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .URL }}">{{ .Title }}</a></li>*/}}
+			{{ range where .Page.Pages "Weight" "ge" 0 }}
+			<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .Path }}">{{ .LinkTitle }}</a></li>
+			{{ end }}
+		{{ end }}
+		{{- /* partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) */}}
+		</ul>
 	</div>
 
-	{{ range index $page.Site.Menus $page.Section }}
-	<h2>{{ .Name }}</h2>
-	<ul>
-		{{/*<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .URL }}">{{ .Title }}</a></li>*/}}
-		{{ range where .Page.Pages "Weight" "ge" 0 }}
-		<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .Path }}">{{ .LinkTitle }}</a></li>
+	<details class="block md-hidden">
+		<summary><h1>{{ ($page.GetPage $page.Section).Title }}</h1></summary>
+		<div>
+			<p>{{ ($page.GetPage $page.Section).Description }}
+		</div>
+
+		{{ range index $page.Site.Menus $page.Section }}
+		<h2>{{ .Name }}</h2>
+		<ul>
+			{{/*<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .URL }}">{{ .Title }}</a></li>*/}}
+			{{ range where .Page.Pages "Weight" "ge" 0 }}
+			<li class="{{ cond (eq $page.Path .Page.Path) "active" "" }}"><a href="{{ .Path }}">{{ .LinkTitle }}</a></li>
+			{{ end }}
 		{{ end }}
-	{{ end }}
-	{{- /* partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) */}}
-	</ul>
+		{{- /* partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) */}}
+		</ul>
+	</details>
 </nav>
