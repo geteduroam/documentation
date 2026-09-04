@@ -2,25 +2,42 @@ article a {
 	text-decoration: underline !important;
 }
 
-.sidelogo {
+.app-icon {
 	float: left;
-	margin-right: 2rem;
-	width: 6rem;
+	margin: 0 1.5rem 1.5rem 0;
+	font-size: 1.25em;
+}
+@media (min-width: 40em) {
+	.app-icon {
+		font-size: 2em;
+	}
+}
+.app-icon img {
+	display: block;
+	width: 6em;
+	margin: -.6em;
 }
 
 .landing-title {
-	margin-top: 0 !important;
+	font-size: 2rem;
+}
+.landing-subtitle {
+	font-weight: normal;
 }
 
-.landing-title > span {
-	display: block;
-	width: 1px;
-	height: 1px;
-	overflow: hidden;
+ul.download-buttons {
+	display: flex;
+	gap: .6rem;
+	flex-wrap: wrap;
+	justify-content: start;
+	padding: 0;
+	clear: left;
+	margin-bottom: 2rem;
 }
-.landing-title > small {
-	font-size: .4em;
-	color: gray;
+@media (min-width: 40em) {
+	ul.download-buttons {
+		clear: none;
+	}
 }
 
 ul.download-buttons li {
@@ -31,10 +48,7 @@ ul.download-buttons a {
 	display: inline-block;
 }
 ul.download-buttons .download-button-android img {
-	max-height: 3.68rem;
-}
-ul.download-buttons .download-button-ios {
-	margin-top: .6rem;
+	max-height: 2.5rem;
 }
 ul.download-buttons .download-button-windows {
 	background: black url('download/win.svg') no-repeat;
@@ -46,9 +60,7 @@ ul.download-buttons .download-button-linux {
 }
 ul.download-buttons .download-button-windows,
 ul.download-buttons .download-button-linux {
-	margin: .6rem;
-	margin-right: 0;
-	height: 2.5rem;
+	height: calc(2.5rem - 2px);
 	background-size: 1.5rem;
 	color: white;
 	border-radius: .4rem;
@@ -60,7 +72,7 @@ ul.download-buttons details.download-button-windows,
 ul.download-buttons details.download-button-linux {
 	padding: 0;
 	height: auto;
-	min-height: 2.5rem;
+	min-height: calc(2.5rem - 2px);
 	text-align: center;
 	width: min-content;
 }
@@ -77,13 +89,15 @@ ul.download-buttons details summary::-webkit-details-marker {
 ul.download-buttons details ul {
 	padding: 0;
 	display: flex;
-	flex-wrap: wrap-reverse;
+	flex-direction: column;
 	list-style: none;
 	justify-content: space-around;
 }
 ul.download-buttons details ul a {
 	color: white;
 	white-space: nowrap;
+	padding: .25em;
+	display: block;
 }
 
 /********************************/

@@ -2,10 +2,9 @@
 title: geteduroam
 ---
 
-<div><img src="geteduroam.png" alt="geteduroam logo" class="sidelogo"></div>
-<h1 class="landing-title">geteduroam
-	<span></span>
-	<small>Easily connect your devices to eduroam, download the app to get started</small></h1>
+<figure class="app-icon"><img src="geteduroam.png" alt="geteduroam logo"></figure>
+<h1 class="landing-title">geteduroam</h1>
+<h2 class="landing-subtitle">Easily connect your devices to eduroam, download the app to get started</h2>
 
 <ul class="download-buttons">
 <li><a class="download-button-android" href="https://play.google.com/store/apps/details?id=app.eduroam.geteduroam"><img src="download/google-play-badge-2.png" alt="Android"></a>

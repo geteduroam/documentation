@@ -31,7 +31,7 @@ summary:active, button:active, #realm-picker > ul > li:has(label):active { posit
 a:active, button[type=submit]:active { position: relative; top: 2px; }
 
 body {
-	font-family: Open Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family: Inclusive Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-weight: 400;
 	line-height: 1.5;
 	text-align: left;
@@ -83,7 +83,6 @@ header #product-name {
 	gap: 1.25em;
 }
 #systray > .dropdown-container {
-	font-size: .8rem;
 	position: relative;
 
 	/* needed for when it contains a <button> */
@@ -111,8 +110,13 @@ header #product-name {
 	white-space: nowrap;
 	overflow: hidden;
 
-	font-size: 1.2em;
 	display: block;
+}
+
+@media (min-width: 40em) {
+	#systray > .dropdown-container > .dropdown-header {
+		font-size: 1.1em;
+	}
 }
 #systray > .dropdown-container > a.dropdown-header {
 	color: var(--text-color);
@@ -120,7 +124,7 @@ header #product-name {
 }
 #systray > .dropdown-container > a.dropdown-header.active-section,
 #systray > .dropdown-container > a.dropdown-header:hover {
-	text-decoration: underline;
+	box-shadow: 0 -5px inset #00658d61;
 }
 #systray > .dropdown-container > button.dropdown-header {
 	color: var(--text-color);
@@ -212,7 +216,7 @@ header #product-name {
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
-	text-decoration: underline;
+	box-shadow: 0 -5px inset #00658d61;
 }
 #systray > .dropdown-container > button:active .oojs-icon:before,
 #systray > .dropdown-container > a:active .oojs-icon:before,
@@ -272,9 +276,6 @@ pre {
 	padding: .2em .4em;
 }
 
-p {
-	font-size: .95em;
-}
 p.text-center {
 	text-align: center
 }
@@ -285,15 +286,29 @@ picture.screenshot.mac img {
 	filter: drop-shadow(0 .15em .15em rgba(0,0,0,.5)) saturate(50%);
 }
 h1 {
-	font-size: 1.6em;
+	font-size: 1.4em;
 	line-height: 2rem;
 	margin: 0 0 1rem;
 }
-h2 {
-	font-size: 1.4em;
-}
+h2,
 h3 {
-	font-size: 1.2em;
+	font-size: 1.125em;
+	line-height: 1.2;
+}
+
+@media (min-width: 40em) {
+	h1 {
+		font-size: 1.6em;
+		line-height: 2rem;
+	}
+	h2 {
+		font-size: 1.4em;
+		line-height: 1.2;
+	}
+	h3 {
+		font-size: 1.2em;
+		line-height: 1.2;
+	}
 }
 
 .form dl {
@@ -671,7 +686,6 @@ body > .cols {
 
 nav.side-menu {
 	flex: 1 1 auto;
-	line-height: 1.8em;
 	font-size: .9rem;
 	cursor: default;
 }
@@ -691,7 +705,7 @@ nav.side-menu hr {
 nav.side-menu h2 {
 	font-size: 1em;
 	font-variant-caps: all-small-caps;
-	margin: 0;
+	margin: .5em 0;
 }
 nav.side-menu ul {
 	list-style: none;
@@ -699,7 +713,7 @@ nav.side-menu ul {
 	margin: 0;
 }
 nav.side-menu li {
-	margin: .4em 0;
+	margin: .5em 0;
 }
 nav.side-menu ul li a {
 	display: block;
