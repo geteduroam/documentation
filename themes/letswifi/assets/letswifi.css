@@ -118,6 +118,7 @@ header #product-name {
 	color: var(--text-color);
 	text-decoration: none;
 }
+#systray > .dropdown-container > a.dropdown-header.active-section,
 #systray > .dropdown-container > a.dropdown-header:hover {
 	text-decoration: underline;
 }

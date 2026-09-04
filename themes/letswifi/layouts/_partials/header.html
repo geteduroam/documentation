@@ -1,8 +1,10 @@
 <a draggable="false" href="/" id="product-name" aria-label="Home">{{ site.Title }}</a>
 	<div id="systray">
 {{ range .Site.Menus.main }}
+		{{ $section := site.GetPage .Params.section }}
+		{{ $active := or (eq $.Page $section) ($.Page.IsDescendant $section) }}
 		<div class="dropdown-container">
-			<a class="dropdown-header" href="{{ .URL }}">{{ .Name }}</a>
+			<a class="dropdown-header {{ if $active }}active-section{{ end }}" href="{{ .URL }}">{{ .Name }}</a>
 		</div>
 {{ end }}
 	</div>
