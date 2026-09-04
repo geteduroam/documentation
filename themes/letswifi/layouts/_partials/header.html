@@ -2,7 +2,7 @@
 	<div id="systray">
 {{ range .Site.Menus.main }}
 		<div class="dropdown-container">
-			<a class="dropdown-header" href="{{ .URL }}">{{ .Page.LinkTitle }}</a>
+			<a class="dropdown-header" href="{{ .URL }}">{{ .Name }}</a>
 		</div>
 {{ end }}
 	</div>

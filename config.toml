@@ -4,7 +4,19 @@ title = "geteduroam"
 theme = "letswifi"
 enableGitInfo = true
 
-sectionPagesMenu = 'main'
+[menus]
+  [[menus.main]]
+    name = 'Project'
+    pageRef = '/project/information/introduction/'
+    weight = 10
+  [[menus.main]]
+    name = 'Providers'
+    pageRef = '/provider/idp/cat/cat/'
+    weight = 20
+  [[menus.main]]
+    name = 'Technical'
+    pageRef = '/tech/info/contribute/'
+    weight = 30
 
 [markup.goldmark.renderer]
 # Allow HTML in Markdown
