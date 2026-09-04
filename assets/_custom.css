@@ -91,13 +91,13 @@ ul.download-buttons details ul a {
 .sponsors {
 	display: flex;
 	flex-wrap: wrap;
-	gap: 27px;
+	gap: 1.25rem;
 	align-items: center;
 	justify-content: space-evenly;
 	margin: 0 auto;
 }
 .sponsors img {
-	height: 32px;
+	height: 1.5rem;
 	width: auto;
 }
 .sponsors img.opaque {
@@ -124,5 +124,21 @@ ul.download-buttons details ul a {
 @media (max-width: 1300px) {
 	.sponsors {
 		max-width: 800px;
+	}
+}
+@media (min-width: 40em) {
+	.sponsors {
+		gap: 1.75rem;
+	}
+	.sponsors img {
+		height: 2rem;
+	}
+}
+@media (min-width: 60em) {
+	.sponsors {
+		gap: 2rem;
+	}
+	.sponsors img {
+		height: 2.25rem;
 	}
 }
