@@ -126,6 +126,12 @@ header #product-name {
 #systray > .dropdown-container > a.dropdown-header:hover {
 	box-shadow: 0 -5px inset #00658d61;
 }
+@media (prefers-color-scheme: dark) {
+	#systray > .dropdown-container > a.dropdown-header.active-section,
+	#systray > .dropdown-container > a.dropdown-header:hover {
+		box-shadow: 0 -5px inset #007fa7c7;
+	}
+}
 #systray > .dropdown-container > button.dropdown-header {
 	color: var(--text-color);
 	background: none;
@@ -217,6 +223,16 @@ header #product-name {
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
 	box-shadow: 0 -5px inset #00658d61;
+}
+@media (prefers-color-scheme: dark) {
+	#systray > .dropdown-container > button:active,
+	#systray > .dropdown-container > a:active,
+	#systray > details.dropdown-container[open] > summary,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
+		box-shadow: 0 -5px inset #007fa7c7;
+	}
 }
 #systray > .dropdown-container > button:active .oojs-icon:before,
 #systray > .dropdown-container > a:active .oojs-icon:before,
