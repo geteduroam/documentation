@@ -31,7 +31,7 @@ summary:active, button:active, #realm-picker > ul > li:has(label):active { posit
 a:active, button[type=submit]:active { position: relative; top: 2px; }
 
 body {
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+	font-family: Inclusive Sans, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 	font-weight: 400;
 	line-height: 1.5;
 	text-align: left;
@@ -39,9 +39,12 @@ body {
 }
 
 header {
+	max-width: 64rem;
+	margin: 1rem auto 2rem;
 	text-align: right;
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 }
 header, header *, nav.side-menu {
 	user-select: none;
@@ -58,9 +61,38 @@ header #product-name {
 	text-decoration: none;
 	color: var(--text-color);
 }
+
+.block {
+	display: block;
+}
+.hidden {
+	display: none;
+}
+
+@media (min-width: 40em) {
+	.md-block {
+		display: block;
+	}
+	.md-hidden {
+		display: none;
+	}
+}
+
+#systray {
+	display: flex;
+	gap: .6em;
+}
+@media (min-width: 24em) {
+	#systray {
+		gap: 1em;
+	}
+}
+@media (min-width: 40em) {
+	#systray {
+		gap: 1.25em;
+	}
+}
 #systray > .dropdown-container {
-	display: inline-block;
-	font-size: .8rem;
 	position: relative;
 
 	/* needed for when it contains a <button> */
@@ -86,16 +118,29 @@ header #product-name {
 }
 #systray > .dropdown-container > .dropdown-header {
 	white-space: nowrap;
-	border-radius: .1rem;
 	overflow: hidden;
 
-	padding: .2em .6em;
-	font-size: 1.2em;
 	display: block;
+}
+
+@media (min-width: 40em) {
+	#systray > .dropdown-container > .dropdown-header {
+		font-size: 1.1em;
+	}
 }
 #systray > .dropdown-container > a.dropdown-header {
 	color: var(--text-color);
 	text-decoration: none;
+}
+#systray > .dropdown-container > a.dropdown-header.active-section,
+#systray > .dropdown-container > a.dropdown-header:hover {
+	box-shadow: 0 -5px inset #00658d61;
+}
+@media (prefers-color-scheme: dark) {
+	#systray > .dropdown-container > a.dropdown-header.active-section,
+	#systray > .dropdown-container > a.dropdown-header:hover {
+		box-shadow: 0 -5px inset #007fa7c7;
+	}
 }
 #systray > .dropdown-container > button.dropdown-header {
 	color: var(--text-color);
@@ -187,8 +232,17 @@ header #product-name {
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
 #systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
-	background-color: var(--accent-color);
-	color: var(--button-text-color) !important;
+	box-shadow: 0 -5px inset #00658d61;
+}
+@media (prefers-color-scheme: dark) {
+	#systray > .dropdown-container > button:active,
+	#systray > .dropdown-container > a:active,
+	#systray > details.dropdown-container[open] > summary,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:hover,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:active,
+	#systray > .dropdown-container > .dropdown > ul.dropdown-menu > li > a:focus-visible {
+		box-shadow: 0 -5px inset #007fa7c7;
+	}
 }
 #systray > .dropdown-container > button:active .oojs-icon:before,
 #systray > .dropdown-container > a:active .oojs-icon:before,
@@ -206,10 +260,18 @@ header #product-name {
 	outline: none;
 }
 
-main > * {
+main {
+	margin: 0 auto;
 	max-width: 46rem;
-	margin: 1rem auto;
+	min-width: 0;
 }
+
+footer {
+	max-width: 46rem;
+	margin: 2rem auto;
+	text-align: center;
+}
+
 html.dialog main > * {
 	max-width: 24rem;
 }
@@ -235,15 +297,16 @@ section h1, section h2 {
 
 pre {
 	overflow-x: scroll;
-}
-code {
-	background: rgba(0,0,0,.08);
-	padding: .2em .4em;
+	background: rgba(0,0,0,.05);
 	color: var(--code-text-color);
+	padding: .2em .4em;
 }
-p {
-	font-size: .95em;
+@media (prefers-color-scheme: dark) {
+	pre {
+		background: rgba(177, 208, 222, 0.07);
+	}
 }
+
 p.text-center {
 	text-align: center
 }
@@ -254,13 +317,31 @@ picture.screenshot.mac img {
 	filter: drop-shadow(0 .15em .15em rgba(0,0,0,.5)) saturate(50%);
 }
 h1 {
-	font-size: 1.6em;
-}
-h2 {
 	font-size: 1.4em;
+	line-height: 2rem;
+	margin: 0 0 1rem;
 }
+h2,
 h3 {
 	font-size: 1.2em;
+	line-height: 1.2;
+	margin-bottom: 1rem;
+}
+
+@media (min-width: 40em) {
+	h1 {
+		font-size: 1.6em;
+		line-height: 2rem;
+	}
+	h2 {
+		font-size: 1.4em;
+		line-height: 1.2;
+	}
+}
+
+p + h2,
+p + h3 {
+	margin-top: 1.5rem;
 }
 
 .form dl {
@@ -282,9 +363,10 @@ h3 {
 }
 
 details:has(p), table {
-	font-size: .8rem;
+	font-size: .9rem;
 }
-details:has(p) > summary {
+details:has(p) > summary,
+details:has(p) > summary h1 {
 	display: inline;
 }
 details:has(p) > summary:before {
@@ -616,24 +698,36 @@ a:focus .oojs-icon-funnel, a:hover .oojs-icon-funnel {
 	opacity: .5;
 }
 
-.cols > main {
-	flex-grow: 2;
-}
 body > .cols {
-	max-width: 68rem;
+	max-width: 64rem;
 }
 .cols {
 	display: flex;
-	gap: 2em;
+	flex-direction: column;
+	gap: 2rem;
 	margin: 0 auto;
+}
+@media (min-width: 40em) {
+	.cols {
+		flex-direction: row;
+	}
+}
+.cols > main {
+	flex: 2 2 auto;
+	margin: 0;
 }
 
 nav.side-menu {
-	max-width: 16em;
-	line-height: 1.8em;
-	font-size: .9em;
+	flex: 1 1 auto;
+	font-size: .9rem;
 	cursor: default;
 }
+@media (min-width: 40em) {
+	nav.side-menu {
+		max-width: 16rem;
+	}
+}
+
 nav.side-menu img {
 	width: 3.2em;
 	max-height: 3.2em;
@@ -644,7 +738,7 @@ nav.side-menu hr {
 nav.side-menu h2 {
 	font-size: 1em;
 	font-variant-caps: all-small-caps;
-	margin: 0;
+	margin: .5em 0;
 }
 nav.side-menu ul {
 	list-style: none;
@@ -652,7 +746,7 @@ nav.side-menu ul {
 	margin: 0;
 }
 nav.side-menu li {
-	margin: .4em 0;
+	margin: .5em 0;
 }
 nav.side-menu ul li a {
 	display: block;
@@ -682,9 +776,9 @@ nav.side-menu ul li.active a {
 
 		--light-border-color: #353432;
 	}
-	:link { color: #58f; }
-	:visited { color: #c8e; }
-	:link:active, :visited:active { color: #e34; }
+	:link { color: #00a7db; }
+	:visited { color: #b881de; }
+	:link:active, :visited:active { color: #e47; }
 
 	.oojs-icon:before, .oojs-icon:before, .apps .link a:after, .apps .download a:before,
 	details:has(p) > summary:before {

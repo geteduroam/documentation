@@ -1,0 +1,27 @@
+@font-face {
+    font-family: 'Inclusive Sans';
+    src: url('InclusiveSans-Italic.woff2') format('woff2'),
+        url('InclusiveSans-Italic.woff') format('woff');
+    font-weight: normal;
+    font-style: italic;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inclusive Sans';
+    src: url('InclusiveSans-Regular.woff2') format('woff2'),
+        url('InclusiveSans-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'Inclusive Sans';
+    src: url('InclusiveSans-SemiBold.woff2') format('woff2'),
+        url('InclusiveSans-SemiBold.woff') format('woff');
+    font-weight: 600;
+    font-style: normal;
+    font-display: swap;
+}
+
