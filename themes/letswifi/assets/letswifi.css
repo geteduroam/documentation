@@ -301,6 +301,11 @@ pre {
 	color: var(--code-text-color);
 	padding: .2em .4em;
 }
+@media (prefers-color-scheme: dark) {
+	pre {
+		background: rgba(177, 208, 222, 0.07);
+	}
+}
 
 p.text-center {
 	text-align: center
@@ -318,8 +323,9 @@ h1 {
 }
 h2,
 h3 {
-	font-size: 1.125em;
+	font-size: 1.2em;
 	line-height: 1.2;
+	margin-bottom: 1rem;
 }
 
 @media (min-width: 40em) {
@@ -331,10 +337,11 @@ h3 {
 		font-size: 1.4em;
 		line-height: 1.2;
 	}
-	h3 {
-		font-size: 1.2em;
-		line-height: 1.2;
-	}
+}
+
+p + h2,
+p + h3 {
+	margin-top: 1.5rem;
 }
 
 .form dl {
@@ -769,9 +776,9 @@ nav.side-menu ul li.active a {
 
 		--light-border-color: #353432;
 	}
-	:link { color: #58f; }
-	:visited { color: #c8e; }
-	:link:active, :visited:active { color: #e34; }
+	:link { color: #00a7db; }
+	:visited { color: #b881de; }
+	:link:active, :visited:active { color: #e47; }
 
 	.oojs-icon:before, .oojs-icon:before, .apps .link a:after, .apps .download a:before,
 	details:has(p) > summary:before {

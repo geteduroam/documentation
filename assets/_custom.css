@@ -22,7 +22,13 @@ article a {
 	font-size: 2rem;
 }
 .landing-subtitle {
+	font-size: 1.125em;
 	font-weight: normal;
+}
+@media (min-width: 40em) {
+	.landing-subtitle {
+		font-size: 1.4em;
+	}
 }
 
 ul.download-buttons {
