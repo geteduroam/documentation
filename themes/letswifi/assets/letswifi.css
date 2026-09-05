@@ -80,7 +80,17 @@ header #product-name {
 
 #systray {
 	display: flex;
-	gap: 1.25em;
+	gap: .6em;
+}
+@media (min-width: 24em) {
+	#systray {
+		gap: 1em;
+	}
+}
+@media (min-width: 40em) {
+	#systray {
+		gap: 1.25em;
+	}
 }
 #systray > .dropdown-container {
 	position: relative;
