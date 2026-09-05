@@ -30,11 +30,10 @@ ul.download-buttons li {
 ul.download-buttons a {
 	display: inline-block;
 }
-ul.download-buttons .download-button-android img {
-	max-height: 3.68rem;
-}
-ul.download-buttons .download-button-ios {
-	margin-top: .6rem;
+ul.download-buttons .download-button-android img,
+ul.download-buttons .download-button-fdroid img,
+ul.download-buttons .download-button-flathub img {
+	height: 2.5rem;
 }
 ul.download-buttons .download-button-windows {
 	background: black url('download/win.svg') no-repeat;
@@ -84,6 +83,80 @@ ul.download-buttons details ul {
 ul.download-buttons details ul a {
 	color: white;
 	white-space: nowrap;
+}
+
+/********************************/
+
+.section-tabs nav ul {
+	margin: 0;
+	padding: 0;
+	gap: .2em;
+	list-style: none;
+	display: flex;
+}
+.section-tabs nav ul a {
+	text-align: center;
+	padding: .5em .8em .5em .8em;
+	color: var(--highlight-text-color);
+	text-decoration: none;
+	border-radius: .2em .2em 0 0;
+}
+.section-tabs nav ul a:active {
+	color: var(--highlight-text-color);
+}
+
+.section-tabs:has(#android:target) .android,
+.section-tabs:has(#apple:target) .apple,
+.section-tabs:has(#linux:target) .linux,
+.section-tabs:has(#windows:target) .windows {
+	background-color: var(--highlight-bg-color);
+	border-top: 3px solid var(--accent-color);
+}
+
+.section-tabs nav a:before {
+	content: "";
+	display: inline-block;
+	vertical-align: sub;
+	width: 1.8em;
+	height: 1.2em;
+	margin: 0 auto;
+	padding: 0;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: 0 50%;
+}
+.section-tabs nav .android a:before { background-image: url('jornane-icon/android.svg'); }
+.section-tabs nav .apple a:before { background-image: url('apple.svg'); }
+.section-tabs nav .linux a:before { background-image: url('jornane-icon/linux.svg'); }
+.section-tabs nav .windows a:before { background-image: url('jornane-icon/windows.svg'); }
+@media (prefers-color-scheme: dark) {
+	.section-tabs nav .android a:before,
+	.section-tabs nav .apple a:before,
+	.section-tabs nav .windows a:before {
+		/* https://codepen.io/sosuke/pen/Pjoqqp */
+		/* #ccc */
+		filter: invert(80%) sepia(0%) saturate(0%) hue-rotate(343deg) brightness(103%) contrast(91%);
+	}
+}
+
+.section-selector section,
+.section-selector:has(section:target) section {
+	display: none;
+}
+.section-selector h2 {
+	display: none;
+}
+.section-selector section {
+	scroll-margin-top: 50vh;
+	border-left: none;
+	border-bottom: 5px solid var(--accent-color);
+}
+.section-selector:not(:has(section:target)) section.default,
+.section-selector section:target {
+	display: block !important;
+	color: var(--highlight-text-color);
+	background-color: var(--highlight-bg-color);
+	border-radius: 0 .2em .2em .2em;
 }
 
 /********************************/
