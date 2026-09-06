@@ -11,6 +11,8 @@ Renders a menu for the given menu ID.
 {{- $page := .page }}
 
 <nav class="side-menu">
+	<input type="checkbox" id="side-menu-toggle"><label for="side-menu-toggle" class="side-menu-toggle">MENU</label>
+
 	<div>
 		<h1>{{ ($page.GetPage $page.Section).Title }}</h1>
 		<p>{{ ($page.GetPage $page.Section).Description }}
