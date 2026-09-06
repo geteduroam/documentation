@@ -90,14 +90,17 @@ ul.download-buttons details ul a {
 .section-tabs nav ul {
 	margin: 0;
 	padding: 0;
-	gap: .2em;
+	gap: .4em;
 	list-style: none;
 	display: flex;
 }
 .section-tabs nav ul li {
 	text-align: center;
-	padding: .3em 1em .4em .5em;
+	padding: .4em .8em;
 	border-radius: .2em .2em 0 0;
+}
+.section-tabs nav ul li a {
+	margin-right: .3em;
 }
 .section-tabs nav ul li a, .section-tabs nav ul li a:active {
 	color: var(--highlight-text-color);
