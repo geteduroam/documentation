@@ -16,7 +16,7 @@ weight: 50
 </nav>
 
 <div class="section-selector">
-<section class="highlight default">
+<section class="default">
 <p>Select your operating system from the list</p>
 
 </section>

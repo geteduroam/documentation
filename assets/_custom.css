@@ -94,21 +94,20 @@ ul.download-buttons details ul a {
 	list-style: none;
 	display: flex;
 }
-.section-tabs nav ul a {
+.section-tabs nav ul li {
 	text-align: center;
-	padding: .5em .8em .5em .8em;
-	color: var(--highlight-text-color);
-	text-decoration: none;
+	padding: .3em 1em .4em .5em;
 	border-radius: .2em .2em 0 0;
 }
-.section-tabs nav ul a:active {
+.section-tabs nav ul li a, .section-tabs nav ul li a:active {
 	color: var(--highlight-text-color);
+	text-decoration: none;
 }
 
-.section-tabs:has(#android:target) .android,
-.section-tabs:has(#apple:target) .apple,
-.section-tabs:has(#linux:target) .linux,
-.section-tabs:has(#windows:target) .windows {
+.section-tabs:has(#android:target) nav li.android,
+.section-tabs:has(#apple:target) nav li.apple,
+.section-tabs:has(#linux:target) nav li.linux,
+.section-tabs:has(#windows:target) nav li.windows {
 	background-color: var(--highlight-bg-color);
 	border-top: 3px solid var(--accent-color);
 }
@@ -117,13 +116,12 @@ ul.download-buttons details ul a {
 	content: "";
 	display: inline-block;
 	vertical-align: sub;
-	width: 1.8em;
+	width: 1.2em;
 	height: 1.2em;
-	margin: 0 auto;
-	padding: 0;
+	margin: 0 .5em;
 	background-size: contain;
 	background-repeat: no-repeat;
-	background-position: 0 50%;
+	background-position: 50% 50%;
 }
 .section-tabs nav .android a:before { background-image: url('jornane-icon/android.svg'); }
 .section-tabs nav .apple a:before { background-image: url('apple.svg'); }
@@ -146,7 +144,7 @@ ul.download-buttons details ul a {
 .section-selector h2 {
 	display: none;
 }
-.section-selector section {
+.section-selector section.highlight {
 	scroll-margin-top: 50vh;
 	border-left: none;
 	border-bottom: 5px solid var(--accent-color);
@@ -155,7 +153,6 @@ ul.download-buttons details ul a {
 .section-selector section:target {
 	display: block !important;
 	color: var(--highlight-text-color);
-	background-color: var(--highlight-bg-color);
 	border-radius: 0 .2em .2em .2em;
 }
 
