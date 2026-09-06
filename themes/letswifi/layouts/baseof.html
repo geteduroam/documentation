@@ -4,7 +4,7 @@
 <header>
 {{ partial "header.html" . }}
 </header>
-{{ if .CurrentSection.Section }}
+{{ if and (.CurrentSection.Section) (ne "download" .CurrentSection.Section) }}
 <div class="cols">
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
 {{ end }}
