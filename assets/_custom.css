@@ -102,6 +102,11 @@ ul.download-buttons details ul a {
 .section-tabs nav ul li a {
 	margin-right: .3em;
 }
+.section-tabs:not(:has(.section-selector section:target)) nav ul li {
+	outline: 1px solid var(--accent-color);
+	border-radius: .2em;
+}
+
 .section-tabs nav ul li a, .section-tabs nav ul li a:active {
 	color: var(--highlight-text-color);
 	text-decoration: none;
