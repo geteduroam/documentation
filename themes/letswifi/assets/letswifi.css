@@ -39,7 +39,6 @@ body {
 }
 
 header {
-	text-align: right;
 	display: flex;
 	justify-content: space-between;
 }
@@ -50,13 +49,16 @@ header, header *, nav.side-menu {
 	user-drag: none;
 	-webkit-user-drag: none;
 }
-header * {
-	text-align: left;
-}
 header #product-name {
 	font-weight: bold;
 	text-decoration: none;
 	color: var(--text-color);
+}
+
+#systray {
+	display: flex;
+	gap: .3em;
+	justify-content: flex-end;
 }
 #systray > .dropdown-container {
 	display: inline-block;
@@ -629,10 +631,13 @@ body > .cols {
 }
 
 nav.side-menu {
-	max-width: 16em;
+	width: 16em;
 	line-height: 1.8em;
 	font-size: .9em;
 	cursor: default;
+}
+nav.side-menu #side-menu-toggle, nav.side-menu .side-menu-toggle {
+	display: none;
 }
 nav.side-menu img {
 	width: 3.2em;
@@ -668,6 +673,90 @@ nav.side-menu ul li a:hover, nav.side-menu ul li a:active, nav.side-menu ul li.a
 nav.side-menu ul li.active a {
 	background: var(--highlight-bg-color);
 	cursor: default;
+}
+
+@media (max-width: 50em) {
+	.cols nav.side-menu .side-menu-toggle {
+		color: var(--accent-color);
+		display: block;
+		font-size: 1rem;
+		font-weight: bold;
+		padding: 0 .2rem;
+		white-space: nowrap;
+
+		position: absolute;
+		left: 16.1rem;
+		top: 4.6rem;
+
+		cursor: pointer;
+
+	}
+	.cols nav.side-menu .side-menu-toggle:active {
+		margin-left: 2px;
+		color: var(--highlight-text-color);
+	}
+	.cols nav.side-menu .side-menu-toggle:before {
+		content: " 〉 ";
+		display: none;
+		vertical-align: top;
+		transform: scale(-1, -1);
+		margin: 0 .5em;
+	}
+	.cols nav.side-menu .side-menu-toggle:after {
+		display: inline-block;
+		vertical-align: top;
+		content: " 〉 ";
+		margin: 0 .5em;
+	}
+	.cols nav.side-menu {
+		background: var(--bg-color);
+		width: 16em;
+		position: absolute;
+		z-index: 1; /* go over the Sponsors section */
+		left: -17em;
+		bottom: 0;
+		top: 0em;
+		padding-top: 6.5rem;
+		padding-right: 1em;
+		transition: left .2s ease-in-out 0s;
+	}
+	#side-menu-toggle + :focus ~ .cols nav.side-menu,
+	#side-menu-toggle:focus ~ .cols nav.side-menu,
+	#side-menu-toggle:checked ~ .cols nav.side-menu,
+	.cols nav.side-menu:has(#side-menu-toggle:checked),
+	.cols nav.side-menu:focus-within {
+		left: 1em;
+		box-shadow: inset -1em 0 1em -1.5em var(--text-color);
+	}
+
+	#side-menu-toggle + :focus ~ .cols nav.side-menu .side-menu-toggle,
+	#side-menu-toggle:focus ~ .cols nav.side-menu .side-menu-toggle,
+	#side-menu-toggle:checked ~ .cols nav.side-menu .side-menu-toggle,
+	.cols nav.side-menu:has(#side-menu-toggle:checked) .side-menu-toggle,
+	.cols nav.side-menu:focus-within .side-menu-toggle {
+		left: -1.2rem;
+	}
+	#side-menu-toggle + :focus ~ .cols nav.side-menu .side-menu-toggle:active,
+	#side-menu-toggle:focus ~ .cols nav.side-menu .side-menu-toggle:active,
+	#side-menu-toggle:checked ~ .cols nav.side-menu .side-menu-toggle:active,
+	.cols nav.side-menu:has(#side-menu-toggle:checked) .side-menu-toggle:active,
+	.cols nav.side-menu:focus-within .side-menu-toggle:active {
+		margin-left: -2px;
+	}
+	#side-menu-toggle + :focus ~ .cols nav.side-menu .side-menu-toggle:before,
+	#side-menu-toggle:focus ~ .cols nav.side-menu .side-menu-toggle:before,
+	#side-menu-toggle:checked ~ .cols nav.side-menu .side-menu-toggle:before,
+	.cols nav.side-menu:has(#side-menu-toggle:checked) .side-menu-toggle:before,
+	.cols nav.side-menu:focus-within .side-menu-toggle:before {
+		display: inline-block;
+	}
+	#side-menu-toggle + :focus ~ .cols nav.side-menu .side-menu-toggle:after,
+	#side-menu-toggle:focus ~ .cols nav.side-menu .side-menu-toggle:after,
+	#side-menu-toggle:checked ~ .cols nav.side-menu .side-menu-toggle:after,
+	.cols nav.side-menu:has(#side-menu-toggle:checked) .side-menu-toggle:after,
+	.cols nav.side-menu:focus-within .side-menu-toggle:after {
+		display: none;
+	}
 }
 
 @media (prefers-color-scheme: dark) {

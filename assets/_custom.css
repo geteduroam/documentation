@@ -96,7 +96,7 @@ ul.download-buttons details ul a {
 }
 .section-tabs nav ul li {
 	text-align: center;
-	padding: .4em .8em;
+	padding: .4em .8em .3em .8em;
 	border-radius: .2em .2em 0 0;
 }
 .section-tabs nav ul li a {
@@ -162,6 +162,18 @@ ul.download-buttons details ul a {
 	display: block !important;
 	color: var(--highlight-text-color);
 	border-radius: 0 .2em .2em .2em;
+}
+
+/********************************/
+
+@media (max-width: 50em) {
+	header {
+		flex-direction: column;
+		gap: 1em;
+	}
+	.cols {
+		gap: 0;
+	}
 }
 
 /********************************/
